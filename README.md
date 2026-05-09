@@ -6,7 +6,7 @@ This repository contains a comprehensive quantitative research project analyzing
 The primary objective of this analysis is to determine how changes in new housing construction affect median sales prices, utilizing both historical regression and predictive forecasting
 
 ## Business Values & Economic Insights
-- Macro-Factors Outweigh Pure Supply: Discovered that macroeconomic variables—specifically the investment-to-GDP ratio, wages, and CPI—are much stronger determinants of median home prices than the volume of new construction alone.
+- Macro-Factors Outweigh Pure Supply: Discovered that macroeconomic variables—specifically the investment-to-GDP ratio, wages, and CPI are much stronger determinants of median home prices than the volume of new construction alone.
 * The Economic Growth Indicator: While initial basic models suggested that increased supply lowers prices, controlling for broader economic indicators revealed a positive correlation. This suggests that high construction volume serves as an indicator of broader economic growth, which drives up demand and, in turn, prices.
 + Forecasting Limitations in Volatile Markets: Demonstrated that an ARIMA model trained on pre-recession data significantly underestimated the 2021-2023 housing market surge, highlighting the difficulty of forecasting during unprecedented economic destabilization like the COVID-19 pandemic.
 
