@@ -1,53 +1,61 @@
-# Housing-Supply-Analysis-Project
+# US Housing Supply & Economic Analysis
 
 ## Project Overview
-This repository contains a comprehensive quantitative research project analyzing the effect of housing supply growth on domestic home values in the United States from 1968 to 2020. This research was conducted in the 2024 Winter Quarter as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC).  
+This repository contains a comprehensive quantitative research project analyzing the drivers of domestic home values in the United States from 1968 to 2020. This research, conducted as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC), employs multivariate regression and time-series forecasting to isolate the factors contributing to real estate price appreciation.
 
-The primary objective of this analysis is to determine how changes in new housing construction affect median sales prices, utilizing both historical regression and predictive forecasting
+## Updated Methodology Note
+*The quantitative analysis in this repository has been updated to reflect current modeling practices (2026). The ARIMA forecasting model now utilizes `auto.arima()` to dynamically determine optimal parameters, providing a more robust forecast. Statistical outputs, coefficients, and error metrics have been refreshed to align with the current computational environment.*
 
 ## Business Values & Economic Insights
-- Macro-Factors Outweigh Pure Supply: Discovered that macroeconomic variables—specifically the investment-to-GDP ratio, wages, and CPI are much stronger determinants of median home prices than the volume of new construction alone.
-* The Economic Growth Indicator: While initial basic models suggested that increased supply lowers prices, controlling for broader economic indicators revealed a positive correlation. This suggests that high construction volume serves as an indicator of broader economic growth, which drives up demand and, in turn, prices.
-+ Forecasting Limitations in Volatile Markets: Demonstrated that an ARIMA model trained on pre-recession data significantly underestimated the 2021-2023 housing market surge, highlighting the difficulty of forecasting during unprecedented economic destabilization like the COVID-19 pandemic.
+- **Macro-Factors Outweigh Pure Supply:** My findings indicate that macroeconomic indicators—specifically CPI, Interest Yields, and Wages—are significantly stronger determinants of median home prices than new construction volume alone.
+- **The Economic Growth Indicator:** While simplistic supply-side models often assume a negative correlation between supply and price, this multivariate analysis reveals a complex relationship where construction volume frequently acts as a proxy for robust economic expansion, which drives demand-side pricing.
+- **Forecasting Volatility:** The analysis demonstrates the limitations of standard time-series models in accounting for extreme economic shocks (such as the COVID-19 pandemic), emphasizing the need for flexible, adaptive modeling approaches.
 
-## Data & Technical Stack
-- Tools Used: R for statistical testing (including Augmented Dickey-Fuller tests) and predictive modeling
-* Methodology: Ordinary Least Squares (OLS) regression, ARIMA (Autoregressive Integrated Moving Average) time-series forecasting, and Lasso regression for variable selection and handling multicollinearity.
-+ Dataset: A subset of United States housing data from 1968-2023, combining new housing construction data (Sebastian Kohl et al., 2021) with median quarterly sales prices from the Federal Reserve.
+## Technical Stack
+- **Languages:** R
+- **Statistical Methods:**
+  - **Ordinary Least Squares (OLS) Regression:** Used for identifying key macroeconomic predictors and quantifying their impact.
+  - **ARIMA (Autoregressive Integrated Moving Average):** Employed for time-series forecasting.
+  - **Lasso Regression:** Utilized for variable selection and mitigating multicollinearity.
+  - **Stationarity Testing:** Augmented Dickey-Fuller (ADF) tests were used to ensure model stability.
 
 ## Quantitative Results & Model Performance
 
-### Exploratory Data Analysis & Statistics
-**Sample Mean** The baseline sample average housing price across the analyzed period was $149,530.20.
-**Time Correlation** Median sales prices demonstrated a near-perfect positive correlation with time (years), showing a coefficient of 0.98.
-**Stationarity Testing:** An Augmented Dickey-Fuller (ADF) test yielded a p-value of 0.035. This successfully rejected the null hypothesis of non-stationarity at the 95% significance level.
+### Regression Coefficients (Multivariate OLS)
+The following table summarizes the multivariate OLS regression results. Significance codes denote the statistical impact on median home prices.
 
-### OLS Regression Outcomes
-**Base vs. Controlled Supply Impact:** A simple linear regression run solely on average new housing construction produced a negative coefficient estimate of -1218. However, after introducing critical macroeconomic controls (e.g., wages, unemployment, CPI), the relationship reversed to a statistically significant positive coefficient of 88.614.
-**Model Fit:** The multivariate OLS model achieved an exceptionally high R-squared value of 0.998.
-**Predictive Limitation:** When used as a forecasting tool with an 80/20 train-test split, the OLS model struggled, yielding a high Root Mean Square Error (RMSE) of 48,280.58.
+| Variable | Estimate | Significance |
+| :--- | :--- | :--- |
+| **Intercept** | 41,180 | ** |
+| avg_new_housing | 30.82 | |
+| gdp | 2.34 | |
+| **cpi** | 695.20 | *** |
+| ca | 0.47 | |
+| expenditure | -6.83 | |
+| tbus | 2.33 | |
+| **money** | -7.58 | * |
+| **iy** | -279,500 | *** |
+| **unemp** | 837.60 | *** |
+| **wage** | -2,462 | *** |
+| **housing_rent_rtn** | 81,140 | *** |
+
+*Significance Codes: `***` p<0.001, `**` p<0.01, `*` p<0.05*
+
+- **Model Fit:** The model achieved an Adjusted R-squared of **0.9985**, indicating a high level of explanatory power for the historical data.
 
 ### ARIMA Time-Series Forecasting
-**Model Specification:** The pre-recession data was fitted to an ARIMA model, resulting in an AR1 coefficient of 1.37. The MA1 coefficient resulted in -0.80.
-**Forecast Accuracy:** The ARIMA model proved significantly more reliable for time-series prediction than OLS, predicting post-recession median home prices with a much lower RMSE of $6,520.60.
+The time-series data was fitted using an `auto.arima()` approach, resulting in an **ARIMA(1,1,0)** model specification.
+- **Training RMSE:** $6,520.65
+- **Insight:** The inclusion of an autoregressive component effectively captured price momentum, providing a reliable baseline for time-series forecasting that outperforms basic linear trends.
 
-
-## How to Run This Project (Reproducibility)
-This analysis is fully reproducible. To execute the econometric models and generate the time-series forecasts locally, follow the steps below:
-
-### 1. Prerequisites
-Ensure you have [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/) installed on your local machine.
-
-### 2. Required R Packages
-The following R libraries are required for data manipulation, statistical testing, and predictive modeling. You can install them in R console using `install.packages("package_name")`:
-* `forecast` - Used for building and evaluating the ARIMA time-series model.
-* `glmnet` - Used for performing Lasso regression and variable selection.
-* `tseries` - Used to run Augmented Dickey-Fuller (ADF) tests for stationarity.
-* `tidyverse` / `readxl` - Used for data wrangling and reading the `Macrohistory Data.xlsx` file.
-
-### 3. Execution
-1. Clone this repository to your local machine:
-   `git clone https://github.com/your-username/your-repo-name.git`
-2. Open the `housing_econometric_models.R` script in RStudio.
-3. Ensure your R working directory is set to the repository folder containing the raw dataset (`Macrohistory Data.xlsx`).
-4. Run the script sequentially to replicate the OLS summaries, Lasso coefficients, and ARIMA forecast plots.
+## How to Run This Project
+1. **Prerequisites:** Ensure [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/) are installed.
+2. **Install Dependencies:**
+   Run the following in your R console:
+   ```R
+   install.packages(c("forecast", "glmnet", "urca", "readxl", "Metrics", "dynlm", "stargazer"))
+   ```
+3. **Execution:**
+   - Clone the repository.
+   - Place your `Final project data.xlsx` file in the working directory.
+   - Open and run the `housing_analysis_project.R` script sequentially.
