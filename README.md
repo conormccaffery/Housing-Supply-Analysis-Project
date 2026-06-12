@@ -30,3 +30,24 @@ The primary objective of this analysis is to determine how changes in new housin
 ### ARIMA Time-Series Forecasting
 **Model Specification:** The pre-recession data was fitted to an ARIMA model, resulting in an AR1 coefficient of 1.37. The MA1 coefficient resulted in -0.80.
 **Forecast Accuracy:** The ARIMA model proved significantly more reliable for time-series prediction than OLS, predicting post-recession median home prices with a much lower RMSE of $6,520.60.
+
+
+## How to Run This Project (Reproducibility)
+This analysis is fully reproducible. To execute the econometric models and generate the time-series forecasts locally, follow the steps below:
+
+### 1. Prerequisites
+Ensure you have [R](https://cran.r-project.org/) and [RStudio](https://posit.co/download/rstudio-desktop/) installed on your local machine.
+
+### 2. Required R Packages
+The following R libraries are required for data manipulation, statistical testing, and predictive modeling. You can install them in R console using `install.packages("package_name")`:
+* `forecast` - Used for building and evaluating the ARIMA time-series model.
+* `glmnet` - Used for performing Lasso regression and variable selection.
+* `tseries` - Used to run Augmented Dickey-Fuller (ADF) tests for stationarity.
+* `tidyverse` / `readxl` - Used for data wrangling and reading the `Macrohistory Data.xlsx` file.
+
+### 3. Execution
+1. Clone this repository to your local machine:
+   `git clone https://github.com/your-username/your-repo-name.git`
+2. Open the `housing_econometric_models.R` script in RStudio.
+3. Ensure your R working directory is set to the repository folder containing the raw dataset (`Macrohistory Data.xlsx`).
+4. Run the script sequentially to replicate the OLS summaries, Lasso coefficients, and ARIMA forecast plots.
