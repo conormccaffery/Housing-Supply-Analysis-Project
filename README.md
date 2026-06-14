@@ -11,7 +11,7 @@ This repository contains a comprehensive quantitative research project analyzing
 **Observed vs. Predicted Median Home Prices**
 ![Observed vs.Predicted](outputs/observed-vs-predicted.png)
 
-**10-Year ARIMA Forecast**
+**10-Year Forecast (ARIMA 1,1,0 with drift)**
 ![Forecasted Prices](outputs/forecasted-median-home-prices.png)
 
 ## Business Value & Economic Insights
@@ -49,7 +49,7 @@ The following table summarizes the multivariate OLS regression results. Signific
 
 *Significance Codes: `***` p<0.001, `**` p<0.01, `*` p<0.05*
 
-- **Model Fit:** The model achieved an Adjusted R-squared of 0.9985. Note: In time-series data with strong upward trends, R-squared is heavily inflated. This non-stationarity is exactly why Augmented Dickey-Fuller (ADF) tests and differencing were required for the subsequent ARIMA modeling.
+- **Model Fit:** The model achieved an Adjusted R-squared of 0.9985. Note: In time-series data with strong upward macroeconomic trends, R-squared is heavily inflated. This non-stationarity is exactly why Augmented Dickey-Fuller (ADF) tests and differencing were required for the subsequent ARIMA modeling.
 
 ### ARIMA Time-Series Forecasting
 The time-series data was fitted using an `auto.arima()` approach, resulting in an **ARIMA(1,1,0)** model specification.
