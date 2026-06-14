@@ -6,6 +6,14 @@ This repository contains a comprehensive quantitative research project analyzing
 ## Updated Methodology Note
 *The quantitative analysis in this repository has been updated to reflect current modeling practices (2026). The ARIMA forecasting model now utilizes `auto.arima()` to dynamically determine optimal parameters, providing a more robust forecast. Statistical outputs, coefficients, and error metrics have been refreshed to align with the current computational environment.*
 
+### Key Visualizations
+
+**Observed vs. Predicted Median Home Prices**
+![Observed vs.Predicted](outputs/observed-vs-predicted.png)
+
+**10-Year ARIMA Forecast**
+![Forecasted Prices](outputs/forecasted-median-home-prices.png)
+
 ## Business Value & Economic Insights
 - **Macro-Factors Outweigh Pure Supply:** My findings indicate that macroeconomic indicators—specifically CPI, Interest Yields, and Wages—are significantly stronger determinants of median home prices than new construction volume alone.
 - **The Economic Growth Indicator:** While simplistic supply-side models often assume a negative correlation between supply and price, this multivariate analysis reveals a complex relationship where construction volume frequently acts as a proxy for robust economic expansion, which drives demand-side pricing.
