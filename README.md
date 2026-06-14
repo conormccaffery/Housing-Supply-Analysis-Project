@@ -1,12 +1,12 @@
 # US Housing Supply & Economic Analysis
 
 ## Project Overview
-This repository contains a comprehensive quantitative research project analyzing the drivers of domestic home values in the United States from 1968 to 2020. This research, conducted as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC), employs multivariate regression and time-series forecasting to isolate the factors contributing to real estate price appreciation.
+This repository contains a comprehensive quantitative research project analyzing the drivers of domestic home values in the United States from 1968 to 2019. This research, conducted as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC), employs multivariate regression and time-series forecasting to isolate the factors contributing to real estate price appreciation.
 
 ## Updated Methodology Note
 *The quantitative analysis in this repository has been updated to reflect current modeling practices (2026). The ARIMA forecasting model now utilizes `auto.arima()` to dynamically determine optimal parameters, providing a more robust forecast. Statistical outputs, coefficients, and error metrics have been refreshed to align with the current computational environment.*
 
-## Business Values & Economic Insights
+## Business Value & Economic Insights
 - **Macro-Factors Outweigh Pure Supply:** My findings indicate that macroeconomic indicators—specifically CPI, Interest Yields, and Wages—are significantly stronger determinants of median home prices than new construction volume alone.
 - **The Economic Growth Indicator:** While simplistic supply-side models often assume a negative correlation between supply and price, this multivariate analysis reveals a complex relationship where construction volume frequently acts as a proxy for robust economic expansion, which drives demand-side pricing.
 - **Forecasting Volatility:** The analysis demonstrates the limitations of standard time-series models in accounting for extreme economic shocks (such as the COVID-19 pandemic), emphasizing the need for flexible, adaptive modeling approaches.
@@ -41,7 +41,7 @@ The following table summarizes the multivariate OLS regression results. Signific
 
 *Significance Codes: `***` p<0.001, `**` p<0.01, `*` p<0.05*
 
-- **Model Fit:** The model achieved an Adjusted R-squared of **0.9985**, indicating a high level of explanatory power for the historical data.
+- **Model Fit:** The model achieved an Adjusted R-squared of 0.9985. Note: In time-series data with strong upward trends, R-squared is heavily inflated. This non-stationarity is exactly why Augmented Dickey-Fuller (ADF) tests and differencing were required for the subsequent ARIMA modeling.
 
 ### ARIMA Time-Series Forecasting
 The time-series data was fitted using an `auto.arima()` approach, resulting in an **ARIMA(1,1,0)** model specification.
@@ -57,5 +57,5 @@ The time-series data was fitted using an `auto.arima()` approach, resulting in a
    ```
 3. **Execution:**
    - Clone the repository.
-   - Place your `Final project data.xlsx` file in the working directory.
-   - Open and run the `housing_analysis_project.R` script sequentially.
+   - Run the script. The dataset is already included and referenced via a relative path (data/Final project data.xlsx), so no working directory configuration is needed.
+   
