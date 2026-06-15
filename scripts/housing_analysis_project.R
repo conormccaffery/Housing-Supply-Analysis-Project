@@ -4,7 +4,7 @@
 
 library(readxl)
 library(urca)
-df <- read_excel("data/Final project data.xlsx",sheet="Macrohistory")
+df <- read_excel("data/housing_macrohistory_data.xlsx",sheet="Macrohistory")
 #df <- subset(df,select=-c(iso,ifs,JSTtrilemmaIV,rent_ipolated,eq_capgain_interp,eq_tr_interp))#The eq columns have missing data
 df <- df[, colSums(is.na(df)) == 0]
 lm(medprice~avg_new_housing,data=df) #hpnom = house price(nominal index, 1990=100)
