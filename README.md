@@ -65,5 +65,5 @@ The time-series data was fitted using an `auto.arima()` approach, resulting in a
    ```
 3. **Execution:**
    - Clone the repository.
-   - Run the script. The dataset is already included and referenced via a relative path (data/housing_macrohistory_data.xlsx",sheet="Macrohistory), so no working directory configuration is needed.
+   - Run the script. The dataset is already included and referenced via a relative path (data/housing_macrohistory_data.xlsx), so no working directory configuration is needed.
    
