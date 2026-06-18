@@ -49,7 +49,8 @@ upper_bound <- ols_predictions[,"upr"]
 plot(df$avg_new_housing,df$medprice,col="blue",xlab="New Housing",ylab="OLS Predicted Values With CI") #OLS CI PLOT
 abline(ols_model,col="red")
 
-#comparing rate of change of hpnom of 1968 - 2007, to 2008-2020. Predict future years.
+#Comparing the rate of change of hpnom of 1968 - 2007, to 2008-2020. 
+#Predict future years.
 AROC_before <-(244950-24800)/(2007-1968)
 AROC_after <- (336950-244400)/(2020-2012) #medprice = 244400 in 2012. Figure 5 has an increasing trend in 2012-2020.
 AROC_before
