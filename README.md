@@ -1,7 +1,7 @@
 # US Housing Supply & Economic Analysis
 
 ## Project Overview
-This repository contains a comprehensive quantitative research project analyzing the drivers of domestic home values in the United States from 1968 to 2019. This research, conducted as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC), employs multivariate regression and time-series forecasting to isolate the factors contributing to real estate price appreciation.
+This repository contains a comprehensive quantitative research project analyzing the drivers of domestic home values in the United States from 1968 to 2020. This research, conducted as part of my Advanced Quantitative Methods coursework at the University of California, Santa Cruz (UCSC), employs multivariate regression and time-series forecasting to isolate the factors contributing to real estate price appreciation.
 
 ## Updated Methodology Note
 *The quantitative analysis in this repository has been updated to reflect current modeling practices (2026). The ARIMA forecasting model now utilizes `auto.arima()` to dynamically determine optimal parameters, providing a more robust forecast. Statistical outputs, coefficients, and error metrics have been refreshed to align with the current computational environment.*
